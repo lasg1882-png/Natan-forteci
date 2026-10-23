@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natan Fortec | Blog de Tech & Desenvolvimento</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            fortec: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#22c55e',
+              600: '#16a34a',
+              700: '#15803d',
+              800: '#166534',
+              900: '#14532d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .font-mono { font-family: 'Fira Code', monospace; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 flex flex-col min-h-screen">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-fortec-600 to-emerald-400 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-fortec-500/20 group-hover:scale-105 transition-transform">
+          NF
+        </div>
+        <span class="font-bold text-xl tracking-tight text-gray-900 dark:text-white">
+          Natan<span class="text-fortec-600 dark:text-fortec-500">.Fortec</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 font-medium">
+        <a href="#artigos" class="hover:text-fortec-600 dark:hover:text-fortec-500 transition-colors">Artigos</a>
+        <a href="#categorias" class="hover:text-fortec-600 dark:hover:text-fortec-500 transition-colors">Categorias</a>
+        <a href="#sobre" class="hover:text-fortec-600 dark:hover:text-fortec-500 transition-colors">Sobre Mim</a>
+        <a href="#contato" class="hover:text-fortec-600 dark:hover:text-fortec-500 transition-colors">Contato</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <button id="themeToggle" class="p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors" title="Alternar tema">
+          <i id="themeIcon" class="fas fa-moon"></i>
+        </button>
+        <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu Mobile -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 py-4 space-y-3">
+      <a href="#artigos" class="block font-medium hover:text-fortec-600 dark:hover:text-fortec-500">Artigos</a>
+      <a href="#categorias" class="block font-medium hover:text-fortec-600 dark:hover:text-fortec-500">Categorias</a>
+      <a href="#sobre" class="block font-medium hover:text-fortec-600 dark:hover:text-fortec-500">Sobre Mim</a>
+      <a href="#contato" class="block font-medium hover:text-fortec-600 dark:hover:text-fortec-500">Contato</a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden py-16 md:py-24 border-b border-gray-200 dark:border-gray-800 bg-gradient-to-b from-fortec-50/50 to-transparent dark:from-fortec-900/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-12">
+      <div class="flex-1 text-center md:text-left space-y-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-fortec-100 dark:bg-fortec-900/50 text-fortec-700 dark:text-fortec-400 text-sm font-semibold">
+          <span class="w-2 h-2 rounded-full bg-fortec-500 animate-pulse"></span>
+          Blog Oficial de Tecnologia & Desenvolvimento
+        </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+          Explorando o Universo da <span class="text-transparent bg-clip-text bg-gradient-to-r from-fortec-600 to-emerald-400">Programação</span>
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
+          Tutoriais práticos, artigos sobre ecossistema JavaScript, arquitetura de software e tecnologia por Natan Fortec.
+        </p>
+
+        <!-- Barra de Busca -->
+        <div class="pt-2 max-w-md mx-auto md:mx-0">
+          <div class="relative">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+            <input type="text" id="searchInput" placeholder="Buscar artigos por título ou tag..." class="w-full pl-11 pr-4 py-3.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-fortec-500 focus:outline-none transition-all shadow-sm">
+          </div>
+        </div>
+      </div>
+
+      <!-- Avatar Card -->
+      <div class="flex-1 flex justify-center">
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-fortec-600 to-emerald-400 rounded-3xl blur opacity-30 group-hover:opacity-75 transition duration-500"></div>
+          <div class="relative bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700 shadow-xl max-w-xs text-center space-y-4">
+            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-tr from-fortec-500 to-emerald-400 p-1">
+              <div class="w-full h-full rounded-full bg-gray-900 flex items-center justify-center text-white text-3xl font-extrabold">
+                NF
+              </div>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white">Natan Fortec</h3>
+              <p class="text-sm text-fortec-600 dark:text-fortec-400 font-medium">Software Engineer & Educator</p>
+            </div>
+            <p class="text-xs text-gray-500 dark:text-gray-400">
+              Transformando café em código limpo, sistemas escaláveis e conteúdos acessíveis.
+            </p>
+            <div class="flex justify-center gap-4 text-gray-600 dark:text-gray-400">
+              <a href="#" class="hover:text-fortec-600 dark:hover:text-fortec-500 transition-colors"><i class="fab fa-github text-lg"></i></a>
+              <a href="#" class="hover:text-fortec-600 dark:hover:text-fortec-500 transition-colors"><i class="fab fa-linkedin text-lg"></i></a>
+              <a href="#" class="hover:text-fortec-600 dark:hover:text-fortec-500 transition-colors"><i class="fab fa-twitter text-lg"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12 w-full">
+    
+    <!-- Filtro de Categorias -->
+    <section id="categorias">
+      <div class="flex flex-wrap gap-2 items-center justify-center md:justify-start" id="categoryFilters">
+        <button data-category="All" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-fortec-600 text-white shadow-md transition-all">Todos</button>
+        <button data-category="JavaScript" class="filter-btn px-4 py-2 rounded-xl text-sm font-semibold bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">JavaScript</button>
+        <button data-category="Node
